@@ -1,0 +1,30 @@
+<mvc:View
+    controllerName="finalproject.controller.Object"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form"
+    >
+	<VBox id="_IDGenVBox1">
+		<f:SimpleForm id="SimpleFormShipAddress"
+			editable="false"
+			layout="ResponsiveGridLayout"
+            width="100%"
+			title="Infos du Commande"
+			labelSpanL="3"
+			labelSpanM="3"
+			emptySpanL="4"
+			emptySpanM="4"
+			columnsL="1"
+			columnsM="1" >
+			<f:content>
+				<Label id="_IDGenLabel1" text="Designation" />
+				<Text id="_IDGenText1" text="{Commantaire}" />
+				<Label id="_IDGenLabel2" text="Utilisateur" />
+				<Text id="_IDGenText2" text="{Utulisateur}" />
+				<Label id="_IDGenLabel3" text="date" />
+				<Text id="_IDGenText3" text="{Datecreation}" />
+				<Label id="_IDGenLabel4" text="Statut" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</mvc:View>

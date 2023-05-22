@@ -1,0 +1,207 @@
+<mvc:View
+    controllerName="finalproject.controller.Visu"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:mc="sap.suite.ui.microchart"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:microchart="sap.suite.ui.microchart"
+
+    xmlns:chart="sap.suite.ui.commons"
+    xmlns:vizData="sap.viz.ui5.data"
+    xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds"
+    >
+
+   <Page
+		id="visualization_page"
+		title="{pageModel>/pages/1/title}"
+	>
+		<customHeader>
+			<Toolbar
+				id="home_toolbar_vis"
+				class="customToolBar"
+			>
+				<content>
+					<HBox
+						id="header_vis"
+						class="customHeaderHBox"
+					>
+						<core:Icon
+							id="header_icon_vis"
+							src="{pageModel>/pages/1/icon}"
+							class="customHeaderIcon"
+						/>
+						<Title
+							id="header_title_vis"
+							text="{pageModel>/pages/1/title} "
+							level="H1"
+							class="customHeaderTitle"
+						/>
+					</HBox>
+				</content>
+			</Toolbar>
+		</customHeader>
+		<SplitContainer
+			id="SplitContDemo"
+			initialDetail="Chart"
+			initialMaster="Prams_chart"
+		>
+			<detailPages>
+				<Page
+					id="Chart"
+					showHeader="false"
+				>
+					
+					<content>
+						<chart:ChartContainer
+							autoAdjustHeight="true"
+							id="chartContainer"
+							title="Reports"
+						>
+							<chart:ChartContainerContent
+                                id="chart_container"
+								icon="sap-icon://horizontal-stacked-chart"
+								title="Stacked_bar Chart"
+							>
+								<chart:content>
+									<viz:VizFrame
+										height=""
+										id="idVizFrame"
+										uiConfig="{
+											applicationSet: 'fiori'
+										}"
+										vizProperties="{
+											plotArea: {
+												drawingEffect: 'light'
+											},
+										
+											dataLabel: {
+												visible: true,
+												showTotal: true
+											}
+										}"
+										vizType="{chartConfig>/vizType}"
+									>
+										<viz:dataset>
+											<vizData:FlattenedDataset id="dataset" data="{chartConfig>/Datasets}">
+												<vizData:dimensions>
+													<vizData:DimensionDefinition
+                                                        id="dimension_mois"
+														name="Mois"
+														value="{chartConfig>Mois}"
+													/>
+												</vizData:dimensions>
+												<vizData:measures>
+													<vizData:MeasureDefinition
+                                                        id="mes_valide"
+														name="Valide"
+														value="{chartConfig>Valide}"
+													/>
+													<vizData:MeasureDefinition
+                                                        id="mesure_en_cours"
+														name="En_cours"
+														value="{chartConfig>En_cours}"
+													/>
+													
+												</vizData:measures>
+											</vizData:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<vizFeeds:FeedItem
+                                                id="feed_mes"
+												type="Measure"
+												uid="valueAxis"
+												values="Valide,En_cours"
+											/>
+											<vizFeeds:FeedItem
+                                                id="feed_dimension"
+												type="Dimension"
+												uid="categoryAxis"
+												values="Mois"
+											/>
+										</viz:feeds>
+									</viz:VizFrame>
+								</chart:content>
+							</chart:ChartContainerContent>
+						</chart:ChartContainer>
+					</content>
+			
+				</Page>
+			</detailPages>
+			<masterPages>
+				<Page
+					id="Prams_chart"
+					showHeader="false"
+				>
+					<List
+						headerText="Measure"
+						mode="SingleSelect"
+						id="MeasureList"
+						includeItemInSelection="true"
+                        selectionChange=".onMesureChanged"
+					>
+						<StandardListItem
+							id="demande_d_achat"
+							title="Demande d'achat"
+							selected="true"
+						/>
+						<StandardListItem
+							id="commande_achat"
+							title="Commande d'achat"
+							selected="false"
+						/>
+						<StandardListItem
+							id="commande_vente"
+							title="Commande de vente"
+							selected="false"
+						/>
+					</List>
+					<Panel
+						id="pannel"
+						headerText="Type de graphique"
+					>
+						<Select
+							id="select"
+							width="100%"
+                            change=".onChartTypeChanged"
+						>
+							<items>
+								<core:Item
+									id="chart_bar"
+									text="Bar"
+									key="Bar"
+								/>
+							</items>
+							<items>
+								<core:Item
+									id="chart_line"
+									text="Line"
+									key="Line"
+								/>
+							</items>
+							<items>
+								<core:Item
+									id="chart_column"
+									text="Column"
+									key="Column"
+								/>
+							</items>
+							<items>
+								<core:Item
+									id="chart_stacked"
+									text="Stacked Column"
+									key="Stacked_Column"
+								/>
+							</items>
+						</Select>
+					</Panel>
+				</Page>
+			</masterPages>
+		</SplitContainer>
+	</Page>
+</mvc:View>

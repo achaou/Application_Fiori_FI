@@ -1,0 +1,132 @@
+<mvc:View
+    controllerName="finalproject.controller.DetailVente"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"    
+    xmlns:semantic="sap.f.semantic"
+    xmlns:f="sap.ui.layout.form">
+
+    <semantic:SemanticPage
+        id="page"
+        busy="{objectVenteView>/busy}"
+        busyIndicatorDelay="{objectVenteView>/delay}">
+
+        <semantic:titleHeading>
+            <Title
+                id="text"
+                text="poste  {SD>Postid}"
+                level="H2"/>
+        </semantic:titleHeading>
+
+        <semantic:headerContent>
+           <l:HorizontalLayout id="_IDGenHorizontalLayout1">
+				
+                <l:VerticalLayout id="vert" class="sapUiMediumMarginEnd">
+					
+                          <Image  id="iImageTicket" src="{DetailVenteView>/article/Pictureurl}" densityAware="false" width="200px" height="200px"/>
+                        
+				</l:VerticalLayout>
+				<l:VerticalLayout id="_IDGenVerticalLayout1">
+                <ObjectAttribute id="_IDGenObjectAttribute1"
+						title="Numero de Post"
+						text="{SD>Postid}"/>
+					<ObjectAttribute id="_IDGenObjectAttribute2"
+						title="Quantity"
+						text="{SD>Quantity} {SD>Unit}"/>
+					<ObjectAttribute id="_IDGenObjectAttribute3"
+						title="Code de Produit"
+						text="{SD>Productid}"/>
+					<Label id="_IDGenLabel1" text="Désignation"/>
+                    <ObjectAttribute id="_IDGenObjectAttribute4"
+						text="{SD>Discount} {SD>Unitprice}" />
+				</l:VerticalLayout>
+			</l:HorizontalLayout>
+        </semantic:headerContent>
+
+
+        <semantic:content>
+			<VBox id="hb">
+                <!-- <items>
+                <VBox id="_IDGenVBox1">
+
+                        <f:SimpleForm id="SimpleFormShipAddres"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            width="100%"
+                            title="Infos du poste"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            columnsL="1"
+                            columnsM="1" >
+                           <f:content>
+                                <Label id="_IDGenLabel2" text="Qte commandé" />
+                                <Text id="_IDGenText1" text="{Prix} {Devise}" />
+                                <Label id="_IDGenLabel3" text="Utilisateur" />
+                                <Text id="_IDGenText2" text="{Utilisateur}" />
+                                <Label id="_IDGenLabel4" text="Prix" />
+                                <Text id="_IDGenText3" text="{Prix} {Devise}" />
+                            </f:content>
+                        </f:SimpleForm>
+                    </VBox>
+                </items> -->
+            <items>
+                <VBox id="_IDGenVBox2">
+
+                        <f:SimpleForm id="SimpleFormShipAddre"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            width="100%"
+                            title="Infos de l'article"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            columnsL="1"
+                            columnsM="1" >
+                            <f:content>
+                                <Label id="_IDGenLabel5" text="Article" />
+                                <Text id="_IDGenText4" text="{DetailVenteView>/article/Productid}" />
+                                <Label id="_IDGenLabel6" text="Nom du produit" />
+                                <Text id="_IDGenText5" text="{DetailVenteView>/article/Suppliername}" />
+                                <Label id="_IDGenLabel7" text="Description" />
+                                <Text id="_IDGenText6" text="{DetailVenteView>/article/Shortdescription} " />
+                                <Label id="_IDGenLabel8" text="Prix" />
+                                <Text id="_IDGenText7" text="{DetailVenteView>/article/Price} {DetailAchView>/article/Unit}" />
+
+                            </f:content>
+                        </f:SimpleForm>
+                    </VBox>
+                </items>
+    
+                
+				
+			</VBox>
+		</semantic:content>
+
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+        </semantic:sendEmailAction>
+		<semantic:closeAction>
+			<semantic:CloseAction
+				id="closeColumn"
+				press=".onCloseDetailPress"/>
+		</semantic:closeAction>
+
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction
+				id="enterFullScreen"
+				visible="{= !${appView>/actionButtonsInfo/endColumn/fullScreen}}"
+				press="toggleFullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction
+				id="exitFullScreen"
+				visible="{= ${appView>/actionButtonsInfo/endColumn/fullScreen}}"
+				press="toggleFullScreen"/>
+		</semantic:exitFullScreenAction>
+
+    </semantic:SemanticPage>
+
+</mvc:View>

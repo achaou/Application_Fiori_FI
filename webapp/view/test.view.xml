@@ -1,0 +1,23 @@
+<mvc:View
+	controllerName="finalproject.controller.test"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	height="100%">
+	<ScrollContainer id="_IDGenScrollContainer1"
+		height="100%"
+		width="100%"
+		horizontal="true"
+		vertical="true">
+		<FlexBox id="_IDGenFlexBox1" direction="Column" renderType="Div" class="sapUiSmallMargin">
+			<FlexBox id="_IDGenFlexBox2">
+				<Button id="_IDGenButton1" text="Correctly Displayed" press="onCorrectPathClick"/>
+				<Button id="_IDGenButton2" text="Loading Error" press="onIncorrectPathClick"/>
+			</FlexBox>
+			<PDFViewer id="_IDGenPDFViewer1" source="{test>/Source}" title="{test>/Title}" height="{test>/Height}">
+				<layoutData>
+					<FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
+				</layoutData>
+			</PDFViewer>
+		</FlexBox>
+	</ScrollContainer>
+</mvc:View>

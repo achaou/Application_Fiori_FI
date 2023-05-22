@@ -1,0 +1,127 @@
+<mvc:View  controllerName="finalproject.controller.Cards"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    
+    xmlns:microchart="sap.suite.ui.microchart"
+    xmlns:layout="sap.ui.layout">
+    
+         
+           
+        
+            <layout:HorizontalLayout id="navigation_layout_horiz" class="sapUiTinyMarginBegin sapUiTinyMarginTop"  allowWrapping="true">
+                <GenericTile
+                    id="zero_card"
+                    class="card sapUiTinyMarginBegin sapUiTinyMarginTop"
+                    press=".onShowDemande"
+                    header="Demande d'achat"
+                    subheader="Validez vos Demandes">
+                    <tileContent>
+                        <TileContent id="zero_title_nav" footer="Totale par semaine">
+                            <content>
+                                <NumericContent
+                                    class="card_footer"
+                                    id="total_demandes"
+                                    scale=""
+                                    icon="sap-icon://sales-document"
+                                    value="{navData>/totalCommande_achat}" /> 
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+               
+                <GenericTile
+                    id="first_card"
+                    class="card sapUiTinyMarginBegin sapUiTinyMarginTop"
+                    press=".onShowHello"
+                    header="Commande d'achat"
+                    subheader="Validez vos commandes">
+                    <tileContent>
+                        <TileContent id="first_title_nav" footer="Totale par semaine">
+                            <content>
+                                <NumericContent
+                                    class="card_footer"
+                                    id="total_commandes"
+                                    scale=""
+                                    icon="sap-icon://sales-document"
+                                    value="{navData>/totalCommande_achat}" /> 
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+
+                <GenericTile
+                    id="second_card"
+                    class="sapUiTinyMarginBegin sapUiTinyMarginTop card"
+                    header="Commande de vente"
+                    press="goToVente"
+                    subheader="Validez vos commandes">
+
+                    <tileContent>
+                        <TileContent id="second_title_nav" footer="Total par semaine">
+                            <content>
+                                <NumericContent
+                                    class="card_footer"
+                                    id="second_content"
+                                    scale=""
+                                    icon="sap-icon://payment-approval"
+                                    value="{navData>/totalCommande_vente}" /> 
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+                
+                <GenericTile
+                    id="third_card"
+                    class="sapUiTinyMarginBegin sapUiTinyMarginTop card_home"
+                    header="Visualisation"
+                    press=".goToVisualization"
+                    subheader="Consultez vos activités"
+                    frameType="TwoByOne">
+                    <TileContent id="sd_orders" footer="Les Commandes par semaine">
+                        <content>
+                             <microchart:ComparisonMicroChart id="micro-container" scale="" size="Responsive">
+                                <microchart:data>
+
+                                    <microchart:ComparisonMicroChartData id="micro-1" title="Commandes d'achats en cours"
+                                        value="20"  color="#1B9C85" />
+                                    <microchart:ComparisonMicroChartData id="micro-2" title="Commandes de ventes en cours"
+                                        value="10" color="#2CD3E1" /> 
+                                    <microchart:ComparisonMicroChartData id="micro-3" title="Commandes de ventes en cours"
+                                        value="100" color="#2CD3E1" /> 
+
+                                </microchart:data>
+                            </microchart:ComparisonMicroChart>
+                            
+                        </content>
+                    </TileContent>
+
+                    
+
+
+                </GenericTile>
+
+                <GenericTile
+                    id="4_card"
+                    class="sapUiTinyMarginBegin sapUiTinyMarginTop card"
+                    header="Mon Espace"
+                    subheader="Consultez votre espace">
+                    <tileContent>
+                        <TileContent id="4_title_nav" >
+                            <content>
+                                <NumericContent
+                                    class="card_footer"
+                                    id="4_content"
+                                    icon="sap-icon://person-placeholder"
+                                    indicator="None"
+                                    value="-"
+                                    valueColor="Good"
+                                    /> 
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+                
+            </layout:HorizontalLayout>
+        
+
+</mvc:View>

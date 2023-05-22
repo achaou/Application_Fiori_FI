@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="finalproject.controller.App"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <!-- <Shell> -->
+        <App
+		id="app"
+		busy="{appView>/busy}"
+		busyIndicatorDelay="{appView>/delay}">
+		<f:FlexibleColumnLayout
+			id="layout"
+			layout="{appView>/layout}"
+			backgroundDesign="Translucent">
+            <!-- <beginColumnPages>
+			<mvc:XMLView id="beginView" viewName="worklist" />
+		    </beginColumnPages> -->
+		</f:FlexibleColumnLayout>
+	</App>
+    <!-- </Shell> -->
+
+</mvc:View>

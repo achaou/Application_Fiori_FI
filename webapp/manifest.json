@@ -1,0 +1,346 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "finalproject",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:worklist",
+      "version": "1.8.6",
+      "toolsId": "d4aa5db8-65d6-483e-8ebf-3db7d93da3ab"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZODATA_INWI_MM_FI_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "mainService2": {
+        "uri": "/sap/opu/odata/sap/ZODATA_INWI_SD_FI_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "mainService3": {
+        "uri": "/sap/opu/odata/sap/ZODATA_INWI_FI_FACTURATION_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.113.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "config": {
+			"fullWidth": true
+		},
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "finalproject.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "SD": {
+        "dataSource": "mainService2",
+        "preload": true,
+        "settings": {}
+      },
+      "Fac":{
+        "dataSource": "mainService3",
+        "preload": true,
+        "settings": {}
+
+
+      }
+    },
+    "resources": {
+      "css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "viewPath": "finalproject.view",
+        "controlId": "layout",
+        "transition": "slide",
+        "controlAggregation": "beginColumnPages",
+        "bypassed": {
+          "target": [
+            
+          ]
+        },
+        "async": true
+      },
+      "routes": [
+       
+        {
+          "pattern": "",
+          "name": "Home",
+          "target": [
+            "Home"
+          ]
+        },
+        {
+          "pattern": "test",
+          "name": "test",
+          "target": [
+						"test"
+					]
+        },
+        {
+          "pattern": "Demande",
+          "name": "DemandeAch",
+          "target": [
+            "DemandeAch"
+          ]
+        },
+        {
+          "pattern": "Vente",
+          "name": "vente",
+          "target": [
+            "vente"
+          ]
+        },
+        {
+          "pattern": "Commande",
+          "name": "worklist",
+          "target": [
+            "worklist"
+          ]
+        },
+        {
+          "pattern": "CommandeSet/{objectId}/:?query:",
+          "name": "object",
+          "target": [
+						"worklist",
+						"object"
+					]
+        },
+        {
+          "pattern": "Vente/{objectId}/:?query:",
+          "name": "objectVente",
+          "target": [
+						"vente",
+						"objectVente"
+					]
+        },
+        {
+          "pattern": "DemandeSet/{objectId}/:?query:",
+          "name": "objectAch",
+          "target": [
+						"DemandeAch",
+						"objectAch"
+					]
+        },
+        {
+          "pattern": "PostDemande/{orderId}/{postId}/:?query:",
+          "name": "objectDetailAch",
+          "target": [
+             "DemandeAch",
+             "objectAch",
+						 "objectDetailAch"
+					]
+        },
+        {
+          "pattern": "PostVente/{orderId}/{postId}/:?query:",
+          "name": "objectDetailVente",
+          "target": [
+             "vente",
+             "objectVente",
+						 "objectDetailVente"
+					]
+        },
+        {
+          "pattern": "PostSet/{orderId}/{postId}/:?query:",
+          "name": "objectDetail",
+          "target": [
+             "worklist",
+             "object",
+						 "objectDetail"
+					]
+        },
+        {
+          "pattern": "visualisation/:?query:",
+          "name": "visualisation",
+          "target": [
+            "visualisation"
+          ]
+        }
+      ],
+      "targets": {
+         "Home" : {
+          "viewName": "Home",
+          "viewId": "Home",
+          "viewLevel": 1,
+          "title": "Home"
+   
+
+        },
+        "visualisation": {
+          "viewName": "Visualisation",
+          "viewId": "visualisation",
+          "viewLevel": 2
+        },
+        "vente":{
+          "viewName": "Vente",
+          "viewId": "vente",
+          "viewLevel": 1,
+          "title": "{i18n>worklistViewTitle}"
+        
+
+        },
+        "objectVente":{
+          "viewName": "ObjectVente",
+          "viewId": "objectVente",
+          "viewLevel": 2,
+          "title": "{i18n>worklistViewTitle}",
+          "controlAggregation": "midColumnPages"
+
+        },
+        "test":{
+          "viewName": "test",
+          "viewId": "test",
+          "viewLevel": 1,
+          "title": "{i18n>worklistViewTitle}"
+
+        },
+        "objectDetailVente":{
+          "viewName": "ObjectDetailVente",
+          "viewId": "objectDetailVente",
+          "viewLevel": 3,
+          "controlAggregation": "endColumnPages"
+        },
+       
+        "DemandeAch":{
+          "viewName": "DemandeAch",
+          "viewId": "demandeAch",
+          "viewLevel": 1,
+          "title": "{i18n>worklistViewTitle}"
+        
+
+        },
+        "objectAch":{
+          "viewName": "ObjectAch",
+          "viewId": "objectAch",
+          "viewLevel": 2,
+          "title": "{i18n>worklistViewTitle}",
+          "controlAggregation": "midColumnPages"
+
+        },
+        "objectDetailAch":{
+          "viewName": "ObjectDetailAch",
+          "viewId": "objectDetailAch",
+          "viewLevel": 3,
+          "controlAggregation": "endColumnPages"
+        },
+        "worklist": {
+          "viewName": "Worklist",
+          "viewId": "worklist",
+          "viewLevel": 1,
+          "title": "{i18n>worklistViewTitle}"
+        },
+        "object": {
+          "viewName": "Object",
+          "viewId": "object",
+          "viewLevel": 2,
+          "title": "{i18n>objectViewTitle}",
+          "controlAggregation": "midColumnPages"
+        },
+        "objectDetail": {
+          "viewName": "ObjectDetail",
+          "viewId": "objectDetail",
+          "viewLevel": 3,
+          "title": "{i18n>objectDetailViewTitle}",
+          "controlAggregation": "endColumnPages"
+        },
+        "objectNotFound": {
+          "viewName": "ObjectNotFound",
+          "viewId": "objectNotFound"
+        },
+        "notFound": {
+          "viewName": "NotFound",
+          "viewId": "notFound"
+        },
+        "Commande": {
+          "viewName": "Commande",
+          "viewId": "Commande",
+					"parent": "object",
+					"controlId": "iconTabFilterShipping",
+					"controlAggregation": "content"
+				},
+				"Demande": {
+          "viewName": "Demande",
+          "viewId": "Demande",
+					"parent": "object",
+					"controlId": "iconTabFilterProcessor",
+					"controlAggregation": "content"
+				}
+      }
+    },
+    "rootView": {
+      "viewName": "finalproject.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    }
+  }
+}

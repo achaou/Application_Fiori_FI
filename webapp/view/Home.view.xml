@@ -1,0 +1,23 @@
+<mvc:View
+	controllerName="finalproject.controller.App"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+    xmlns:core="sap.ui.core"
+>
+         <Page id="main_page" title="{pageModel>/pages/0/title}">
+					<customHeader >
+                        <Toolbar id="home_toolbar" class="customToolBar">
+                            <content>
+                                <HBox id="header" class="customHeaderHBox">
+                                    <core:Icon id="header_icon" src="{pageModel>/pages/0/icon}" class="customHeaderIcon" />
+                                    <Title id="header_title" text="{pageModel>/pages/0/title} " level="H1" class="customHeaderTitle" />
+                                </HBox>
+                            </content>
+                        </Toolbar>
+                    </customHeader>
+        <mvc:XMLView id="cards_nav_view" viewName="finalproject.view.Cards"/>
+    </Page>
+</mvc:View>

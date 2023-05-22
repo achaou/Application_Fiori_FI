@@ -1,0 +1,33 @@
+#MMCA{
+ text-align: center;
+}
+
+#finalproject-display-component---worklist--page-pageTitle-left-inner{
+    width: 100%;
+}
+
+#application-finalproject-display-component---worklist--MMCA{
+    text-align: center;
+}
+#__layout3{
+    width: 100%;
+}
+#application-finalproject-display-component---objectDetail--SimpleFormShipAddres--Layout{
+    margin-bottom: 10px;
+}
+#application-finalproject-display-component---object--page-page-content{
+    /* background-color: #f7e8f7; */
+    
+}
+_#IDGenHorizontalLayout1{
+    justify-content: space-around;
+
+}
+
+#application-finalproject-display-component---Home--main_page-cont , #application-finalproject-display-component---demandeAch--page-page-contentFitContainer , #application-finalproject-display-component---worklist--page-page-contentFitContainer{
+    background-color: #def2f7 ;
+}
+
+#application-finalproject-display-component---objectAch--page-page-contentFitContainer , #application-finalproject-display-component---objectDetailAch--page-page-content{
+    background-color: #def2f7 ;
+}

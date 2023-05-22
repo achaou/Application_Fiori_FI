@@ -1,0 +1,74 @@
+<mvc:View
+    controllerName="finalproject.controller.Object"
+	xmlns="sap.m"
+    xmlns:si="sap.suite.ui.commons.statusindicator"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:gantt="sap.gantt.axistime"
+    >
+<VBox id="vbox" justifyContent="Center"  width="100%">
+                                
+        <HBox id="fpcreate" class="fpcreate"
+                        alignItems="Start"
+                        justifyContent="Center"
+                        width="100%"
+                        >
+
+        <items>
+       	<Panel id="pane" class="sapUiResponsiveMargin" width="20rem" height="12rem">   
+			<FlexBox id="flex" alignItems="Center" direction="Column">
+							<Title id="head" level="H4" text="Impact de l'utilisateur {Utulisateur}"/>
+							<si:StatusIndicator id="indicator31" width="50px" height="100px" viewBox="-1 -1 52 102" value="{objectView>/frequencyU}" class="sapUiSmallMargin">
+								<si:ShapeGroup id="sha" >
+									<si:Rectangle id="rec" x="0" y="0" width="50" height="100" fillColor="{objectView>/fillc}" strokeWidth="1" fillingType="Linear"/>
+								</si:ShapeGroup>
+							</si:StatusIndicator>
+			</FlexBox>	
+        </Panel> 
+                    
+        </items>
+
+
+
+
+        <!-- <items>
+        
+                      <viz:Popover id="idPopOver"></viz:Popover> 
+           <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='350px' width="600px" vizType='timeseries_line' >
+                <Title id="test" text="test" visible="true"/>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset id="Flatten" data="{worklistView>/frequency}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition id="-" name="Mois"
+                                value="{worklistView>dateMY}" dataType="date"/>
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition id="7" name="CommandeAchat"
+                                value="{worklistView>s}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id="Feed1" uid="valueAxis" type="Measure"
+                        values="CommandeAchat" />
+               
+                    <viz.feeds:FeedItem id='feed3'  uid="timeAxis"  type="Dimension"
+                        values="Mois" />
+          
+                        
+                </viz:feeds>
+            </viz:VizFrame>
+        </items> -->
+
+
+        
+</HBox>
+
+</VBox>
+</mvc:View>
