@@ -154,7 +154,7 @@
 						
 						<HBox visible="{= ${appView>/layout} === 'OneColumn'}"  id="_hbox">
                                  <Button  class="" type="Transparent" enabled="{= ${SD>Status} === 'NOT VALID'}" id="Edit" text="Valider" press="Valider"/>
-                                 <Button  class="" type="Transparent" enabled="{= ${SD>Status} === 'Valid'}"  id="Imprimer" text="Imprimer" press="Valider"/>
+                                 <Button  class="" type="Transparent" enabled="{= ${SD>Status} === 'Valid'}"  id="Imprimer" text="Imprimer" press="Imprimer"/>
                                  <Button  class="" type="Transparent" enabled="{= ${SD>Status} === 'Valid'}"  id="Mail" text="Mail" press="Mail"/> 
                         </HBox>
 

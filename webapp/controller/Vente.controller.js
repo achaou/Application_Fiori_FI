@@ -350,6 +350,32 @@ sap.ui.define([
                 }})
 		   
 		},
+        Imprimer : function(oEvent){
+            var oModel = this.getOwnerComponent().getModel("SD");
+			var id = oEvent.getSource().getParent().getParent().getCells()[0].mProperties.text
+			console.log(id);
+			if(id.length < 10){
+				do{
+	
+				id = '0'+id
+	
+			   }while(id.length < 10)
+			}
+            // http://10.104.12.91:8000/sap/opu/odata/SAP/ZODATA_INWI_SD_FI_SRV/SD_MAILSet(ORDERID='6000000152')/$value
+            var opdfViewer = new sap.m.PDFViewer();
+			this.getView().addDependent(opdfViewer);
+			var sServiceURL = oModel.sServiceUrl;
+			var sSource = "http://10.104.12.91:8000"+ sServiceURL + "/SD_MAILSet(ORDERID='"+id+"')/$value";
+            // console.log(sSource)
+			// opdfViewer.setSource(sSource);
+			// opdfViewer.setTitle( "My PDF");
+			// opdfViewer.open();	
+            var w = window.open(sSource);
+            if (w == null) {
+                MessageBox.warning(oBundle.getText("Error.BlockedPopUp"));
+            }
+  
+        },
         Mail : function (OEvent){
 			console.log("heelo");
 			// this._onIncPercentage()
