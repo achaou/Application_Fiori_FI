@@ -27,10 +27,10 @@
 									press="valider"/>
 							<Button id="_IDGenButton2" press="Mail"
 									text="SendMail"
-								    enabled="{= ${SD>Statut} === 'Valid'}"
+								    enabled="{= ${SD>Status} === 'Valid'}"
 									type="Transparent"/>
 							<Button id="_IDGenButton15"
-								    enabled="{= ${SD>Statut} === 'Valid'}"
+								    enabled="{= ${SD>Status} === 'Valid'}"
 									text="Imprimer"
 									type="Transparent"/>
 							

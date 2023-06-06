@@ -8,9 +8,13 @@
            
 
            <layout:VerticalLayout id="vertical">
+            <Title id="_IDGenTitle1"
+				titleStyle="H5"
+				text="Visualisation"
+				class="sapUiTinyMarginBegin"/> 
 
                <layout:HorizontalLayout id="navigation_layout_horiz55" class="sapUiTinyMarginBegin sapUiTinyMarginTop"  allowWrapping="true">
-
+                
                 
                 <GenericTile
                     id="third_card"
@@ -38,9 +42,15 @@
                     </TileContent>
                 </GenericTile>
                 </layout:HorizontalLayout>
+
+                 <Title id="_IDGenTitle2"
+				titleStyle="H5"
+				text="Gestion des commande et demande d'achat"
+				class="sapUiTinyMarginBegin"/>
            
         
             <layout:HorizontalLayout id="navigation_layout_horiz" class="sapUiTinyMarginBegin sapUiTinyMarginTop"  allowWrapping="true">
+                 
                 <GenericTile
                     id="zero_card"
                     class="card sapUiTinyMarginBegin sapUiTinyMarginTop"
@@ -82,10 +92,15 @@
                 </GenericTile>
                 </layout:HorizontalLayout>
 
+                <Title id="_IDGenTitle3"
+				titleStyle="H5"
+				text="gestion des  commande de vente"
+				class="sapUiTinyMarginBegin"/>  
+
+
 
                 <layout:HorizontalLayout id="navigation_layout_horiz1" class="sapUiTinyMarginBegin sapUiTinyMarginTop"  allowWrapping="true">
-
-
+                
                 <GenericTile
                     id="second_card"
                     class="sapUiTinyMarginBegin sapUiTinyMarginTop card"

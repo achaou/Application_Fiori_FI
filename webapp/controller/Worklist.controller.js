@@ -373,14 +373,14 @@ sap.ui.define([
 			this.getView().addDependent(opdfViewer);
 			var sServiceURL = oModel.sServiceUrl;
 			var sSource = "http://10.104.12.91:8000"+ sServiceURL + "/MM_FACINWISet(NumCa='"+id+"')/$value";
-            // console.log(sSource)
-			// opdfViewer.setSource(sSource);
-			// opdfViewer.setTitle( "My PDF");
-			// opdfViewer.open();	
-            var w = window.open(sSource);
-            if (w == null) {
-                MessageBox.warning(oBundle.getText("Error.BlockedPopUp"));
-            }
+            console.log(sSource)
+			opdfViewer.setSource("../entity-4.pdf");
+			opdfViewer.setTitle( "My PDF")
+			opdfViewer.open();	
+            // var w = window.open(sSource);
+            // if (w == null) {
+            //     MessageBox.warning(oBundle.getText("Error.BlockedPopUp"));
+            // }
   
         },
         Mail : function (OEvent){

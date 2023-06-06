@@ -14,7 +14,7 @@
         <semantic:titleHeading>
             <Title
                 id="text"
-                text="Commande {DemandeAchat} {PosteDemande}"
+                text="Demande s{DemandeAchat} {PosteDemande}"
                 level="H2"/>
         </semantic:titleHeading>
 

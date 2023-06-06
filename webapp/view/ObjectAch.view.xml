@@ -13,7 +13,7 @@
 
         <semantic:titleHeading>
             <Title id="_IDGenTitle1"
-                text="Commande {DemandeAchat}"
+                text="Demande {DemandeAchat}"
                 level="H2"/>
         </semantic:titleHeading>
 
