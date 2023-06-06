@@ -367,10 +367,10 @@ sap.ui.define([
 			var sServiceURL = oModel.sServiceUrl;
 			var sSource = "http://10.104.12.91:8000"+ sServiceURL + "/SD_MAILSet(ORDERID='"+id+"')/$value";
             console.log(sSource)
-			opdfViewer.setSource("../entity-9.pdf");
-			opdfViewer.setTitle( "My PDF");
-			opdfViewer.open();	
-            // var w = window.open(sSource);
+			// opdfViewer.setSource("../entity-9.pdf");
+			// opdfViewer.setTitle( "My PDF");
+			// opdfViewer.open();	
+            var w = window.open(sSource);
             // if (w == null) {
             //     MessageBox.warning(oBundle.getText("Error.BlockedPopUp"));
             // }
